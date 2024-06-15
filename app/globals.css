@@ -78,3 +78,7 @@ html {
   background-color: buttonface;
   text-decoration: none;
 }
+
+.your-video-element::-webkit-media-controls-start-playback-button {
+  display: none;
+}
