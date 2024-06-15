@@ -30,11 +30,11 @@ const HeroContent = () => {
 
         <motion.div
           variants={slideInFromLeft(0.5)}
-          className="flex flex-col gap-6 mt-6 text-6xl font-bold text-white max-w-[700px] w-auto h-auto"
+          className="flex flex-col gap-6 mt-6 text-4xl font-bold text-white max-w-[600px] w-auto h-auto sm:text-6xl"
         >
           <span>
             
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-500">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-500 ">
               {" "}
               Providing connections with
                all your projects{" "}
