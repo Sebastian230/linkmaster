@@ -28,7 +28,7 @@ function Footer() {
                   className="w-[18rem]"
                 />
               
-              <p className="text-[15px] font-medium text-[#646464] md:block">`&quot;`Everything Has a Beginning and an End. Life is Just a Cycle of Starts and Stops.`&quot;`</p>
+              <p className="text-[15px] font-medium text-[#646464] md:block">&quot;Everything Has a Beginning and an End. Life is Just a Cycle of Starts and Stops.&quot;</p>
               <p className="text-[15px] font-medium text-[#646464] text-right mr-48 md:block">- Jet Black</p>
               {/* socials */}
               <div className="flex gap-7 text-[18px] text-[#efefef] justify-center md:justify-start">
