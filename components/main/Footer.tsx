@@ -1,6 +1,7 @@
 import { FaLinkedin } from "react-icons/fa";
 import { AiOutlineDiscord, AiOutlineWhatsApp } from "react-icons/ai";
 import { BiLogoGithub } from "react-icons/bi";
+import Image from "next/image";
 
 function Footer() {
   const iconsTab = [
@@ -19,7 +20,7 @@ function Footer() {
             {/* logo side */}
             <div className="flex flex-col w-1/2 md:p-0 py-4 gap-8">
     
-                <img
+                <Image
                   src="/Bash.svg.png"
                   alt=""
                   className="w-[18rem]"
