@@ -47,7 +47,7 @@ const HeroContent = () => {
           variants={slideInFromLeft(0.8)}
           className="text-lg text-gray-400 my-5 max-w-[600px]"
         >
-          An engineer student making shiny things for the web.
+          An engineerign student making shiny things for the web.
           Mobile, and Software development. Check out my projects and skills.
         </motion.p>
         <motion.a
