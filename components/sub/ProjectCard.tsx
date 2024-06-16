@@ -1,5 +1,9 @@
+
+
 import React from 'react'
 import Image from 'next/image'
+
+
 
 
 
@@ -9,11 +13,16 @@ interface Props {
     description: string
 }
 
-const ProjectCard = ({src, title, description }: Props) => {
+const clickHandle = () => {
+    document.location.href = 'https://stackoverflow.com/';
+  }
+
+
+const ProjectCard = ({src, title, description, }: Props) => {
   return (
    
-    <div className='relative overflow-hidden rounded-lg shadow-xl border border-[#000000]'>
-        <form className='cursor-pointer' action="https://google.com">
+    <div className='relative overflow-hidden rounded-lg shadow-xl mb-auto border border-[#000000]'>
+        
             <Image 
                 src={src} 
                 alt={title} 
@@ -21,9 +30,13 @@ const ProjectCard = ({src, title, description }: Props) => {
                 height={1000} 
                 className='w-full object-contain'
             />
-        </form>    
+         
             <div className='relative p-4'>
-            <h1 className='text-2xl font-semibold text-white'>{title}</h1>
+            <a
+                cursor-pointer
+                href='https://github.com/Sebastian230/linkmaster/blob/main/components/main/Hero.tsx'
+            ><h1 className='text-2xl cursor-pointer font-semibold text-white'>{title}</h1></a>
+            
                 <p className='mt-2 text-gray-300'>{description}</p>
             </div>
             
