@@ -3,7 +3,7 @@ import ProjectCard from '../sub/ProjectCard'
 
 const Projecta = () => {
   return (
-    <div id='projects' className='flex flex-col items-center justify-center  py-20 '>
+    <div id='projects' className='flex flex-col items-center justify-center  py-20 px-10'>
         <h1 className='text-[40px] font-semibold text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-purple-500 py-20'>
             Projects 2024
         </h1>
@@ -25,9 +25,31 @@ const Projecta = () => {
             />
 
         </div>
+
+        <div className='h-full w-full flex flex-col lg:flex-row gap-10 px-10'>
+            <ProjectCard
+                src="/seven.gif"
+                title="Rendering a 3D model"
+                description='Rendering a 3D model with Next.js 13, TypeScript, React-three-fiber, and React-three-drei'
+            />
+
+           <ProjectCard
+                src="/five.png"
+                title="Modern porfolio Resct.js"
+                description='Un portafolio utilizando ReactJS y Three.js combina la capacidad de React para construir interfaces de usuario dinámicas y eficientes con las capacidades gráficas 3D avanzadas de Three.js'
+            />
+            
+            <ProjectCard
+                src="/six.png"
+                title="Ecommerce with Dashboard Shadcn, Nextjs y Tailwind"
+                description='Este ecommerce es una plataforma moderna y escalable desarrollada con Next.js para un renderizado eficiente y rápido, utilizando Shadcn y Tailwind CSS para una interfaz de usuario atractiva y responsiva. La base de datos se gestiona con PlanetScale'
+            />
+
+        </div>
+
         <div className='h-full w-full flex flex-col lg:flex-row gap-10 px-10 py-10'>
             <ProjectCard
-                src="/four.png"
+                src="/four1.png"
                 title="Dashboard for Ecommerce"
                 description='Este dashboard para ecommerce es una herramienta moderna y eficiente desarrollada con Next.js para un rendimiento óptimo, utilizando Shadcn y Tailwind CSS para una interfaz de usuario intuitiva y responsiva. '
             />
@@ -43,6 +65,7 @@ const Projecta = () => {
             />
 
         </div>
+       
         
         
     </div>

@@ -16,9 +16,9 @@ function Footer() {
       <footer className="bg-red-1000">
         <div className="container mx-auto  py-[10rem]">
           {/* footer div all */}
-          <div className="flex justify-between flex-col md:flex-row  items-center md:items-start  md:gap-[5rem] text-left">
+          <div className="flex justify-between flex-col md:flex-row  items-center md:items-start   md:gap-[5rem] text-left">
             {/* logo side */}
-            <div className="flex flex-col w-1/2 md:p-0 py-4 gap-8">
+            <div className="flex flex-col w-1/2 md:p-0 py-4  px-20 gap-8">
     
                 <Image
                   src="/Bash.svg.png"
@@ -31,7 +31,7 @@ function Footer() {
               <p className="text-[15px] font-medium text-[#646464] md:block">&quot;Everything Has a Beginning and an End. Life is Just a Cycle of Starts and Stops.&quot;</p>
               <p className="text-[15px] font-medium text-[#646464] text-right mr-48 md:block">- Jet Black</p>
               {/* socials */}
-              <div className="flex gap-7 text-[18px] text-[#efefef] justify-center md:justify-start">
+              <div className="flex gap-7 text-[18px] text-[#efefef] justify-center md:justify-start ">
                 {iconsTab.map(({ icon }, index) => {
                   return (
                     <div
