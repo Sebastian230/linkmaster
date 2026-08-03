@@ -10,7 +10,7 @@ const Hero = () => {
             loop
             playsInline
             aria-hidden="true"
-            className='your-video-element pointer-events-none absolute -top-24 left-0 z-[1] h-[520px] w-full rotate-180 object-cover opacity-70 sm:-top-40 sm:h-[650px]'
+            className='your-video-element pointer-events-none absolute -top-24 left-0 z-[1] hidden h-[520px] w-full rotate-180 object-cover opacity-70 sm:block sm:-top-40 sm:h-[650px]'
         
         >
           <source src='/blackhole.webm' type='video/webm'/>  
