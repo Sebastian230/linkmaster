@@ -16,11 +16,8 @@ const tabs: { id: Category; label: string; shortLabel: string }[] = [
 ];
 
 const projects = [
-  { src: "/first.png", title: "Modern portfolio — React.js", description: "Portfolio built with React and Three.js, combining a dynamic interface with immersive 3D visuals." },
   { src: "/second.gif", title: "Interactive 3D model", description: "Real-time 3D rendering with Next.js, TypeScript, React Three Fiber, and Drei." },
-  { src: "/Spaceweb.png", title: "Linktree portfolio — Next.js", description: "A personal link hub designed to present projects, skills, and social profiles in one place." },
   { src: "/seven.gif", title: "3D product experience", description: "An interactive 3D experience focused on smooth animation and responsive rendering." },
-  { src: "/five.png", title: "Creative web portfolio", description: "A modern portfolio with motion, rich visuals, and a component-driven React architecture." },
   { src: "/six.png", title: "E-commerce dashboard", description: "A scalable e-commerce interface built with Next.js, Shadcn, Tailwind CSS, and PlanetScale." },
   { src: "/four1.png", title: "Commerce analytics", description: "An intuitive dashboard for managing products and understanding store performance." },
   { src: "/three.png", title: "Full-stack e-commerce", description: "A fast, responsive storefront paired with a practical administration dashboard." },

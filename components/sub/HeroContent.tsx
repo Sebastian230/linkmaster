@@ -18,15 +18,15 @@ const HeroContent = () => {
       className="relative z-[20] mx-auto flex w-full max-w-7xl flex-1 flex-col items-center justify-center gap-10 px-5 pb-16 pt-28 sm:px-8 sm:pt-36 lg:flex-row lg:gap-8 lg:px-12 lg:pt-28"
     >
       <div className="flex w-full flex-1 flex-col items-center justify-center gap-4 text-center lg:items-start lg:text-left">
-        <motion.div
-          variants={slideInFromTop}
-          className="Welcome-box hidden border border-[#7042f88b] px-[7px] py-[8px] opacity-[0.9] sm:flex"
-        >
-          <SparklesIcon className="text-[#b49bff] mr-[10px] h-5 w-5" />
-          <h1 className="Welcome-text text-[13px]">
-              linktree
-          </h1>
-        </motion.div>
+        <div className="hidden sm:block">
+          <motion.div
+            variants={slideInFromTop}
+            className="Welcome-box border border-[#7042f88b] px-[7px] py-[8px] opacity-[0.9]"
+          >
+            <SparklesIcon className="mr-[10px] h-5 w-5 text-[#b49bff]" />
+            <h1 className="Welcome-text text-[13px]">linktree</h1>
+          </motion.div>
+        </div>
 
         <motion.div
           variants={slideInFromLeft(0.5)}
@@ -60,7 +60,7 @@ const HeroContent = () => {
 
       <motion.div
         variants={slideInFromRight(0.8)}
-        className="flex w-full max-w-[520px] flex-1 items-center justify-center lg:max-w-none"
+        className="hidden w-full max-w-[520px] flex-1 items-center justify-center lg:flex lg:max-w-none"
       >
         <Image
           src="/mainIconsdark.svg"

@@ -4,6 +4,11 @@ import HeroContent from '../sub/HeroContent'
 const Hero = () => {
   return (
     <section className='relative flex min-h-[90vh] w-full flex-col overflow-hidden'>
+        <nav className='absolute inset-x-0 top-0 z-40 flex h-16 items-center border-b border-white/10 bg-black px-5 sm:hidden'>
+          <a href='#' className='text-base font-semibold tracking-wide text-white' aria-label='Ir al inicio'>
+            Sebastian N.R.
+          </a>
+        </nav>
         <video
             autoPlay
             muted
