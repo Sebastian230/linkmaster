@@ -69,8 +69,8 @@ const HeroContent = () => {
           aria-label="Ver mis proyectos"
         >
           <Image
-            src="/split-keyboard-3d.png"
-            alt="Teclado mecánico split 3D"
+            src="/corne-keyboard-3d.png"
+            alt={es ? "Teclado mecánico Corne split 3D" : "3D Corne split mechanical keyboard"}
             width={768}
             height={512}
             className="h-auto w-full"
