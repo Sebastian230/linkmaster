@@ -7,24 +7,24 @@ import {
   slideInFromRight,
   slideInFromTop,
 } from "@/utils/motion";
-import { SparklesIcon } from "@heroicons/react/24/solid";
 import Image from "next/image";
 
 const HeroContent = () => {
   return (
     <motion.div
-      initial="hidden"
+      initial="visible"
       animate="visible"
-      className="relative z-[20] mx-auto flex w-full max-w-7xl flex-1 flex-col items-center justify-center gap-10 px-5 pb-16 pt-28 sm:px-8 sm:pt-36 lg:flex-row lg:gap-8 lg:px-12 lg:pt-28"
+      className="relative z-30 mx-auto flex w-full max-w-7xl flex-1 flex-col items-center justify-center gap-6 px-5 pb-16 pt-24 sm:gap-10 sm:px-8 sm:pt-36 lg:flex-row lg:gap-8 lg:px-12 lg:pt-28"
     >
       <div className="flex w-full flex-1 flex-col items-center justify-center gap-4 text-center lg:items-start lg:text-left">
-        <div className="hidden sm:block">
+        <div className="mobile-planet-wrap" aria-label="Dos planetas orbitando">
           <motion.div
             variants={slideInFromTop}
-            className="Welcome-box border border-[#7042f88b] px-[7px] py-[8px] opacity-[0.9]"
+            className="hero-planet-system"
           >
-            <SparklesIcon className="mr-[10px] h-5 w-5 text-[#b49bff]" />
-            <h1 className="Welcome-text text-[13px]">linktree</h1>
+            <span className="hero-planet-main" />
+            <span className="hero-planet-ring" />
+            <span className="hero-planet-orbit"><span className="hero-planet-small" /></span>
           </motion.div>
         </div>
 
@@ -52,9 +52,25 @@ const HeroContent = () => {
         <motion.a
           variants={slideInFromLeft(1)}
           href="#projects"
-          className="button-primary mt-2 inline-flex min-h-12 items-center justify-center rounded-full border border-violet-400/30 px-7 py-3 font-medium text-white transition hover:-translate-y-0.5 hover:border-violet-300/60"
+          className="button-primary mt-2 hidden min-h-12 items-center justify-center rounded-full border border-violet-400/30 px-7 py-3 font-medium text-white transition hover:-translate-y-0.5 hover:border-violet-300/60 lg:inline-flex"
         >
           View my work
+        </motion.a>
+
+        <motion.a
+          variants={slideInFromLeft(1)}
+          href="#projects"
+          className="keyboard-project-link lg:hidden"
+          aria-label="Ver mis proyectos"
+        >
+          <Image
+            src="/split-keyboard-3d.png"
+            alt="Teclado mecánico split 3D"
+            width={768}
+            height={512}
+            className="h-auto w-full"
+            priority
+          />
         </motion.a>
       </div>
 

@@ -19,7 +19,6 @@ const projects = [
   { src: "/second.gif", title: "Interactive 3D model", description: "Real-time 3D rendering with Next.js, TypeScript, React Three Fiber, and Drei." },
   { src: "/seven.gif", title: "3D product experience", description: "An interactive 3D experience focused on smooth animation and responsive rendering." },
   { src: "/six.png", title: "E-commerce dashboard", description: "A scalable e-commerce interface built with Next.js, Shadcn, Tailwind CSS, and PlanetScale." },
-  { src: "/four1.png", title: "Commerce analytics", description: "An intuitive dashboard for managing products and understanding store performance." },
   { src: "/three.png", title: "Full-stack e-commerce", description: "A fast, responsive storefront paired with a practical administration dashboard." },
 ];
 
@@ -66,7 +65,7 @@ const Projecta = () => {
   const [activeTab, setActiveTab] = useState<Category>("projects");
 
   return (
-    <section id="projects" className="mx-auto w-full max-w-7xl scroll-mt-8 px-5 py-20 sm:px-8 sm:py-28 lg:px-12">
+    <section id="projects" className="relative z-40 mx-auto w-full max-w-7xl scroll-mt-8 px-5 py-20 sm:px-8 sm:py-28 lg:px-12">
       <div className="mb-9 max-w-3xl sm:mb-12">
         <p className="mb-3 text-sm font-semibold uppercase tracking-[0.24em] text-violet-400">Works</p>
         <h2 className="text-3xl font-bold tracking-tight text-white sm:text-5xl">Proyectos y automatizaciones.</h2>
@@ -78,7 +77,7 @@ const Projecta = () => {
           {tabs.map((tab) => {
             const isActive = activeTab === tab.id;
             return (
-              <button key={tab.id} type="button" role="tab" aria-selected={isActive} aria-controls="works-panel" onClick={() => setActiveTab(tab.id)} className={`min-h-11 rounded-xl px-4 text-sm font-medium transition sm:px-5 sm:text-base ${isActive ? "bg-gradient-to-r from-blue-600 to-violet-600 text-white shadow-lg shadow-violet-950/40" : "text-slate-400 hover:bg-white/[0.06] hover:text-white"}`}>
+              <button key={tab.id} type="button" role="tab" aria-selected={isActive} aria-controls="works-panel" onClick={() => setActiveTab(tab.id)} className={`relative z-10 min-h-11 touch-manipulation rounded-xl px-4 text-sm font-medium transition sm:px-5 sm:text-base ${isActive ? "bg-gradient-to-r from-blue-600 to-violet-600 text-white shadow-lg shadow-violet-950/40" : "text-slate-400 hover:bg-white/[0.06] hover:text-white"}`}>
                 <span className="sm:hidden">{tab.shortLabel}</span><span className="hidden sm:inline">{tab.label}</span>
               </button>
             );
@@ -86,7 +85,7 @@ const Projecta = () => {
         </div>
       </div>
 
-      <div id="works-panel" role="tabpanel" className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <div id="works-panel" role="tabpanel" aria-live="polite" className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
         {activeTab === "projects"
           ? projects.map((project) => <ProjectCard key={project.title} {...project} />)
           : solutions[activeTab].map((solution) => <SolutionCard key={solution.title} solution={solution} />)}

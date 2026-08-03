@@ -1,18 +1,16 @@
 import { FaLinkedin } from "react-icons/fa";
-import { AiOutlineDiscord } from "react-icons/ai";
 import { BiLogoGithub, BiLogoWhatsapp } from "react-icons/bi";
 import Image from "next/image";
 
 const socials = [
-  { icon: <FaLinkedin />, label: "LinkedIn", href: "#" },
-  { icon: <AiOutlineDiscord />, label: "Discord", href: "#" },
-  { icon: <BiLogoWhatsapp />, label: "WhatsApp", href: "#" },
+  { icon: <FaLinkedin />, label: "LinkedIn", href: "https://www.linkedin.com/in/sebrod1998/" },
+  { icon: <BiLogoWhatsapp />, label: "WhatsApp", href: "https://wa.me/59895821202" },
   { icon: <BiLogoGithub />, label: "GitHub", href: "https://github.com/Sebastian230" },
 ];
 
 function Footer() {
   return (
-    <footer className="border-t border-white/10 bg-black/20">
+    <footer id="contact" className="scroll-mt-24 border-t border-white/10 bg-black/20">
       <div className="mx-auto grid w-full max-w-7xl gap-12 px-5 py-16 sm:px-8 md:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr] lg:px-12 lg:py-20">
         <div className="max-w-md">
           <Image src="/Bash.svg.png" alt="Linkmaster" width={288} height={100} className="h-auto w-44 sm:w-56" />
@@ -36,7 +34,7 @@ function Footer() {
           <h3 className="text-lg font-semibold text-white">Availability</h3>
           <div className="mt-5 space-y-4 text-sm sm:text-base">
             <p><span className="block font-medium text-slate-300">Monday — Friday</span><span className="text-slate-500">7:00 — 21:00</span></p>
-            <p><span className="block font-medium text-slate-300">Saturday</span><span className="text-slate-500">7:00 — 19:00</span></p>
+            <p><span className="block font-medium text-slate-300">Saturday</span><span className="text-slate-500">All day</span></p>
             <p className="text-slate-500">Sunday — Closed</p>
           </div>
         </div>
