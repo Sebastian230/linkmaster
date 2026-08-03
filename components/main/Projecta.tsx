@@ -1,75 +1,28 @@
-import React from 'react'
-import ProjectCard from '../sub/ProjectCard'
+import React from "react";
+import ProjectCard from "../sub/ProjectCard";
 
-const Projecta = () => {
-  return (
-    <div id='projects' className='flex flex-col items-center justify-center  py-20 px-10'>
-        <h1 className='text-[40px] font-semibold text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-purple-500 py-20'>
-            Projects 2024
-        </h1>
-        <div className='h-full w-full flex flex-col lg:flex-row gap-10 px-10'>
-           <ProjectCard
-                src="/first.png"
-                title="Modern porfolio Resct.js"
-                description='Un portafolio utilizando ReactJS y Three.js combina la capacidad de React para construir interfaces de usuario dinámicas y eficientes con las capacidades gráficas 3D avanzadas de Three.js'
-            />
-            <ProjectCard
-                src="/second.gif"
-                title="Rendering a 3D model"
-                description='Rendering a 3D model with Next.js 13, TypeScript, React-three-fiber, and React-three-drei'
-            />
-            <ProjectCard
-                src="/Spaceweb.png"
-                title="Porfolio Next.js linktree"
-                description='Un portafolio utilizando ReactJS y Three.js combina la capacidad de React para construir interfaces de usuario dinámicas y eficientes con las capacidades gráficas 3D avanzadas de Three.js'
-            />
+const projects = [
+  { src: "/first.png", title: "Modern portfolio — React.js", description: "Portfolio built with React and Three.js, combining a dynamic interface with immersive 3D visuals." },
+  { src: "/second.gif", title: "Interactive 3D model", description: "Real-time 3D rendering with Next.js, TypeScript, React Three Fiber, and Drei." },
+  { src: "/Spaceweb.png", title: "Linktree portfolio — Next.js", description: "A personal link hub designed to present projects, skills, and social profiles in one place." },
+  { src: "/seven.gif", title: "3D product experience", description: "An interactive 3D experience focused on smooth animation and responsive rendering." },
+  { src: "/five.png", title: "Creative web portfolio", description: "A modern portfolio with motion, rich visuals, and a component-driven React architecture." },
+  { src: "/six.png", title: "E-commerce dashboard", description: "A scalable e-commerce interface built with Next.js, Shadcn, Tailwind CSS, and PlanetScale." },
+  { src: "/four1.png", title: "Commerce analytics", description: "An intuitive dashboard for managing products and understanding store performance." },
+  { src: "/three.png", title: "Full-stack e-commerce", description: "A fast, responsive storefront paired with a practical administration dashboard." },
+];
 
-        </div>
-
-        <div className='h-full w-full flex flex-col lg:flex-row gap-10 px-10'>
-            <ProjectCard
-                src="/seven.gif"
-                title="Rendering a 3D model"
-                description='Rendering a 3D model with Next.js 13, TypeScript, React-three-fiber, and React-three-drei'
-            />
-
-           <ProjectCard
-                src="/five.png"
-                title="Modern porfolio Resct.js"
-                description='Un portafolio utilizando ReactJS y Three.js combina la capacidad de React para construir interfaces de usuario dinámicas y eficientes con las capacidades gráficas 3D avanzadas de Three.js'
-            />
-            
-            <ProjectCard
-                src="/six.png"
-                title="Ecommerce with Dashboard Shadcn, Nextjs y Tailwind"
-                description='Este ecommerce es una plataforma moderna y escalable desarrollada con Next.js para un renderizado eficiente y rápido, utilizando Shadcn y Tailwind CSS para una interfaz de usuario atractiva y responsiva. La base de datos se gestiona con PlanetScale'
-            />
-
-        </div>
-
-        <div className='h-full w-full flex flex-col lg:flex-row gap-10 px-10 py-10'>
-            <ProjectCard
-                src="/four1.png"
-                title="Dashboard for Ecommerce"
-                description='Este dashboard para ecommerce es una herramienta moderna y eficiente desarrollada con Next.js para un rendimiento óptimo, utilizando Shadcn y Tailwind CSS para una interfaz de usuario intuitiva y responsiva. '
-            />
-            <ProjectCard
-                src="/three.png"
-                title="Ecommerce with Dashboard Shadcn, Nextjs y Tailwind "
-                description='Este ecommerce es una plataforma moderna y escalable desarrollada con Next.js para un renderizado eficiente y rápido, utilizando Shadcn y Tailwind CSS para una interfaz de usuario atractiva y responsiva. La base de datos se gestiona con PlanetScale'
-            />
-            <ProjectCard
-                src="/first.png"
-                title="Modern porfolio Resct.js"
-                description='Un portafolio utilizando ReactJS y Three.js combina la capacidad de React para construir interfaces de usuario dinámicas y eficientes con las capacidades gráficas 3D avanzadas de Three.js'
-            />
-
-        </div>
-       
-        
-        
+const Projecta = () => (
+  <section id="projects" className="mx-auto w-full max-w-7xl scroll-mt-8 px-5 py-20 sm:px-8 sm:py-28 lg:px-12">
+    <div className="mb-10 max-w-2xl sm:mb-14">
+      <p className="mb-3 text-sm font-semibold uppercase tracking-[0.24em] text-violet-400">Selected work</p>
+      <h2 className="text-3xl font-bold tracking-tight text-white sm:text-5xl">Projects that turn ideas into experiences.</h2>
+      <p className="mt-5 text-base leading-7 text-slate-400 sm:text-lg">A collection of web, 3D, and full-stack products I&apos;ve designed and developed.</p>
     </div>
-  )
-}
+    <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+      {projects.map((project) => <ProjectCard key={project.title} {...project} />)}
+    </div>
+  </section>
+);
 
-export default Projecta
+export default Projecta;

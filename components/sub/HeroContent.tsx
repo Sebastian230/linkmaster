@@ -15,9 +15,9 @@ const HeroContent = () => {
     <motion.div
       initial="hidden"
       animate="visible"
-      className="flex flex-row items-center justify-center px-20 mt-40 w-full z-[20]"
+      className="relative z-[20] mx-auto flex w-full max-w-7xl flex-1 flex-col items-center justify-center gap-10 px-5 pb-16 pt-28 sm:px-8 sm:pt-36 lg:flex-row lg:gap-8 lg:px-12 lg:pt-28"
     >
-      <div className="h-full w-full flex flex-col gap-5 justify-center m-auto text-start">
+      <div className="flex w-full flex-1 flex-col items-center justify-center gap-4 text-center lg:items-start lg:text-left">
         <motion.div
           variants={slideInFromTop}
           className="Welcome-box py-[8px] px-[7px] border border-[#7042f88b] opacity-[0.9]"
@@ -30,14 +30,13 @@ const HeroContent = () => {
 
         <motion.div
           variants={slideInFromLeft(0.5)}
-          className="flex flex-col gap-6 mt-6 text-4xl font-bold text-white max-w-[600px] w-auto h-auto sm:text-6xl"
+          className="mt-4 max-w-[720px] text-4xl font-bold leading-[1.08] tracking-tight text-white sm:text-5xl lg:text-6xl xl:text-7xl"
         >
           <span>
             
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-500 ">
               {" "}
-              Providing connections with
-               all your projects{" "}
+              Bringing all your projects together
             </span>
              
           </span>
@@ -45,30 +44,31 @@ const HeroContent = () => {
 
         <motion.p
           variants={slideInFromLeft(0.8)}
-          className="text-lg text-gray-400 my-5 max-w-[600px]"
+          className="my-3 max-w-[600px] text-base leading-7 text-slate-300 sm:text-lg"
         >
-          An engineerign student making shiny things for the web.
-          Mobile, and Software development. Check out my projects and skills.
+          I&apos;m an engineering student building thoughtful experiences for web,
+          mobile, and software. Explore a selection of my latest projects.
         </motion.p>
         <motion.a
           variants={slideInFromLeft(1)}
           href="#projects"
-          className="py-2 button-primary text-center text-white cursor-pointer rounded-lg max-w-[200px]"
+          className="button-primary mt-2 inline-flex min-h-12 items-center justify-center rounded-full border border-violet-400/30 px-7 py-3 font-medium text-white transition hover:-translate-y-0.5 hover:border-violet-300/60"
         >
-          Learn More!
+          View my work
         </motion.a>
       </div>
 
       <motion.div
         variants={slideInFromRight(0.8)}
-        className="w-full h-full flex justify-center items-center"
+        className="flex w-full max-w-[520px] flex-1 items-center justify-center lg:max-w-none"
       >
         <Image
           src="/mainIconsdark.svg"
           alt="work icons"
-          height={750}
-          width={750}
-         
+          height={680}
+          width={680}
+          priority
+          className="h-auto w-full max-w-[520px] drop-shadow-[0_0_60px_rgba(124,58,237,0.22)] lg:max-w-[620px]"
         />
       </motion.div>
     </motion.div>

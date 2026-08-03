@@ -7,8 +7,8 @@ import Projecta from "@/components/main/Projecta";
 
 export default function Home() {
   return (
-    <main className="h-full w-full">
-      <div className="flex flex-col  gap-20">
+    <main className="relative min-h-screen w-full overflow-hidden">
+      <div className="relative z-30 flex flex-col">
         <Hero/>
         <Projecta/>
         <Footer/>

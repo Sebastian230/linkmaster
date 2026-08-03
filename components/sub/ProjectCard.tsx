@@ -1,52 +1,20 @@
+import React from "react";
+import Image from "next/image";
 
+interface Props { src: string; title: string; description: string }
 
-import React from 'react'
-import Image from 'next/image'
-
-
-
-
-
-interface Props {
-    src: string;
-    title: string;
-    description: string
-}
-
-const clickHandle = () => {
-    document.location.href = 'https://stackoverflow.com/';
-  }
-
-
-const ProjectCard = ({src, title, description, }: Props) => {
-  return (
-   
-    <div className='relative overflow-hidden rounded-lg shadow-xl mb-auto border border-[#000000]'>
-        
-            <Image 
-                src={src} 
-                alt={title} 
-                width={1000} 
-                height={1000} 
-                className='w-full object-contain'
-            />
-         
-            <div className='relative p-4'>
-            <a
-                cursor-pointer
-                href='https://github.com/Sebastian230/linkmaster/blob/main/components/main/Hero.tsx'
-            ><h1 className='text-2xl cursor-pointer font-semibold text-white'>{title}</h1></a>
-            
-                <p className='mt-2 text-gray-300'>{description}</p>
-            </div>
-            
-            
-
-        
+const ProjectCard = ({ src, title, description }: Props) => (
+  <article className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-white/[0.045] shadow-2xl shadow-black/20 backdrop-blur-sm transition duration-300 hover:-translate-y-1 hover:border-violet-400/40 hover:bg-white/[0.065]">
+    <div className="aspect-[16/10] overflow-hidden bg-black/20">
+      <Image src={src} alt={title} width={1000} height={625} className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.03]" />
     </div>
-    
-    
-  )
-}
+    <div className="relative flex flex-1 flex-col p-5 sm:p-6">
+      <a className="rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400" href="https://github.com/Sebastian230/linkmaster" target="_blank" rel="noreferrer">
+        <h3 className="text-xl font-semibold text-white transition group-hover:text-violet-300 sm:text-2xl">{title}</h3>
+      </a>
+      <p className="mt-3 text-sm leading-6 text-slate-400 sm:text-base">{description}</p>
+    </div>
+  </article>
+);
 
-export default ProjectCard
+export default ProjectCard;
