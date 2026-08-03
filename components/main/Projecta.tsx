@@ -5,6 +5,7 @@ import { BiBot, BiSupport, BiStore, BiCalendarCheck, BiGitBranch, BiData } from 
 import { FaWhatsapp } from "react-icons/fa";
 import { HiOutlineSparkles } from "react-icons/hi2";
 import ProjectCard from "../sub/ProjectCard";
+import { useLanguage } from "../LanguageProvider";
 
 type Category = "projects" | "agents" | "whatsapp" | "integrated";
 
@@ -63,13 +64,43 @@ const SolutionCard = ({ solution }: { solution: (typeof solutions)[SolutionCateg
 
 const Projecta = () => {
   const [activeTab, setActiveTab] = useState<Category>("projects");
+  const { language } = useLanguage();
+  const es = language === "es";
+
+  const esTranslations: Record<string, string> = {
+    "Interactive 3D model": "Modelo 3D interactivo",
+    "Real-time 3D rendering with Next.js, TypeScript, React Three Fiber, and Drei.": "Renderizado 3D en tiempo real con Next.js, TypeScript, React Three Fiber y Drei.",
+    "3D product experience": "Experiencia de producto 3D",
+    "An interactive 3D experience focused on smooth animation and responsive rendering.": "Una experiencia 3D interactiva centrada en animaciones fluidas y renderizado adaptable.",
+    "E-commerce dashboard": "Panel de comercio electrónico",
+    "A scalable e-commerce interface built with Next.js, Shadcn, Tailwind CSS, and PlanetScale.": "Una interfaz de comercio electrónico escalable creada con Next.js, Shadcn, Tailwind CSS y PlanetScale.",
+    "Full-stack e-commerce": "Comercio electrónico full-stack",
+    "A fast, responsive storefront paired with a practical administration dashboard.": "Una tienda rápida y adaptable junto con un práctico panel de administración.",
+  };
+  const enTranslations: Record<string, string> = {
+    "Proyectos": "Projects", "Agentes": "Agents", "Bots de WhatsApp": "WhatsApp bots", "Bots WPP": "WPP bots", "Bots + agentes integrados": "Integrated bots + agents", "Bots + agentes": "Bots + agents",
+    "Agente de atención": "Customer service agent", "Responde consultas frecuentes, comprende el contexto y deriva los casos que necesitan atención humana.": "Answers common questions, understands context, and routes cases that need human attention.",
+    "Agente comercial": "Sales agent", "Califica contactos, recomienda servicios y acompaña cada oportunidad durante el proceso de venta.": "Qualifies leads, recommends services, and supports each opportunity throughout the sales process.",
+    "Agente de operaciones": "Operations agent", "Consulta información interna, prepara reportes y automatiza tareas repetitivas del equipo.": "Retrieves internal information, prepares reports, and automates repetitive team tasks.",
+    "Asistente personalizado": "Custom assistant", "Un agente entrenado con la información, el tono y los procesos específicos de tu negocio.": "An agent trained with your business information, tone, and specific processes.",
+    "Bot de atención por WhatsApp": "WhatsApp customer service bot", "Atiende preguntas, comparte información y deriva conversaciones sin sacar al cliente de WhatsApp.": "Answers questions, shares information, and routes conversations without taking customers out of WhatsApp.",
+    "Bot de turnos y reservas": "Booking and appointment bot", "Muestra horarios disponibles, agenda turnos y envía confirmaciones y recordatorios automáticos.": "Shows availability, schedules appointments, and sends automatic confirmations and reminders.",
+    "Bot para tiendas": "Store bot", "Responde sobre productos, toma pedidos e informa a tus clientes el estado de cada compra.": "Answers product questions, takes orders, and informs customers about each purchase status.",
+    "Bot de soporte": "Support bot", "Recibe incidencias, solicita los datos necesarios y organiza cada caso antes de derivarlo.": "Receives issues, requests the necessary details, and organizes each case before routing it.",
+    "WhatsApp + agente comercial": "WhatsApp + sales agent", "El bot inicia la conversación y el agente analiza la necesidad, califica el lead y actualiza el CRM.": "The bot starts the conversation while the agent analyzes the need, qualifies the lead, and updates the CRM.",
+    "Soporte inteligente integrado": "Integrated smart support", "Combina atención por WhatsApp, búsqueda de información y creación automática de tickets.": "Combines WhatsApp support, information retrieval, and automatic ticket creation.",
+    "Reservas de punta a punta": "End-to-end bookings", "Un bot conversa con el cliente mientras un agente valida disponibilidad, agenda y notifica al equipo.": "A bot talks with the customer while an agent validates availability, schedules, and notifies the team.",
+    "Operaciones conectadas": "Connected operations", "Bots y agentes consultan tus sistemas, ejecutan procesos y mantienen informado al cliente en tiempo real.": "Bots and agents query your systems, run processes, and keep customers informed in real time.",
+    "Atención": "Support", "Soporte": "Support", "Ventas": "Sales", "Datos": "Data", "Reportes": "Reports", "Automatización": "Automation", "Personalizado": "Custom", "Conocimiento": "Knowledge", "Agenda": "Scheduling", "Reservas": "Bookings", "Recordatorios": "Reminders", "Catálogo": "Catalog", "Pedidos": "Orders", "Derivación": "Routing", "Agente IA": "AI agent", "Base de datos": "Database", "Calendario": "Calendar", "Integraciones": "Integrations", "Procesos": "Processes",
+  };
+  const localize = (value: string) => es ? (esTranslations[value] ?? value) : (enTranslations[value] ?? value);
 
   return (
     <section id="projects" className="relative z-40 mx-auto w-full max-w-7xl scroll-mt-8 px-5 py-20 sm:px-8 sm:py-28 lg:px-12">
       <div className="mb-9 max-w-3xl sm:mb-12">
-        <p className="mb-3 text-sm font-semibold uppercase tracking-[0.24em] text-violet-400">Works</p>
-        <h2 className="text-3xl font-bold tracking-tight text-white sm:text-5xl">Proyectos y automatizaciones.</h2>
-        <p className="mt-5 text-base leading-7 text-slate-400 sm:text-lg">Explorá mis proyectos y las soluciones con agentes y bots que puedo integrar en tu negocio.</p>
+        <p className="mb-3 text-sm font-semibold uppercase tracking-[0.24em] text-violet-400">{es ? "Trabajos" : "Works"}</p>
+        <h2 className="text-3xl font-bold tracking-tight text-white sm:text-5xl">{es ? "Proyectos y automatizaciones." : "Projects and automations."}</h2>
+        <p className="mt-5 text-base leading-7 text-slate-400 sm:text-lg">{es ? "Explorá mis proyectos y las soluciones con agentes y bots que puedo integrar en tu negocio." : "Explore my projects and the agent and bot solutions I can integrate into your business."}</p>
       </div>
 
       <div className="scrollbar-hidden mb-10 overflow-x-auto pb-1" role="tablist" aria-label="Categorías de trabajos">
@@ -78,7 +109,7 @@ const Projecta = () => {
             const isActive = activeTab === tab.id;
             return (
               <button key={tab.id} type="button" role="tab" aria-selected={isActive} aria-controls="works-panel" onClick={() => setActiveTab(tab.id)} className={`relative z-10 min-h-11 touch-manipulation rounded-xl px-4 text-sm font-medium transition sm:px-5 sm:text-base ${isActive ? "bg-gradient-to-r from-blue-600 to-violet-600 text-white shadow-lg shadow-violet-950/40" : "text-slate-400 hover:bg-white/[0.06] hover:text-white"}`}>
-                <span className="sm:hidden">{tab.shortLabel}</span><span className="hidden sm:inline">{tab.label}</span>
+                <span className="sm:hidden">{localize(tab.shortLabel)}</span><span className="hidden sm:inline">{localize(tab.label)}</span>
               </button>
             );
           })}
@@ -87,8 +118,8 @@ const Projecta = () => {
 
       <div id="works-panel" role="tabpanel" aria-live="polite" className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
         {activeTab === "projects"
-          ? projects.map((project) => <ProjectCard key={project.title} {...project} />)
-          : solutions[activeTab].map((solution) => <SolutionCard key={solution.title} solution={solution} />)}
+          ? projects.map((project) => <ProjectCard key={project.title} {...project} title={localize(project.title)} description={localize(project.description)} />)
+          : solutions[activeTab].map((solution) => <SolutionCard key={solution.title} solution={{ ...solution, title: localize(solution.title), description: localize(solution.description), tags: solution.tags.map(localize) }} />)}
       </div>
     </section>
   );

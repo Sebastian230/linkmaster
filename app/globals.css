@@ -114,6 +114,9 @@ body {
 }
 .theme-toggle:hover { transform: rotate(8deg); background: rgba(255,255,255,.1); }
 .theme-toggle svg { width: 18px; height: 18px; }
+.language-toggle { display: flex; height: 38px; align-items: center; gap: 2px; padding: 3px; border: 1px solid rgba(255,255,255,.1); border-radius: 12px; background: rgba(255,255,255,.04); }
+.language-toggle button { height: 30px; min-width: 30px; border-radius: 8px; color: #94a3b8; font-size: 9px; font-weight: 700; letter-spacing: .08em; transition: color 180ms ease, background 180ms ease; }
+.language-toggle button.is-active { color: #fff; background: rgba(139,92,246,.38); box-shadow: inset 0 0 8px rgba(196,181,253,.16); }
 .saturn-icon { position: relative; display: grid; width: 21px; height: 18px; place-items: center; transform: rotate(-15deg); }
 .saturn-icon::before { content: ""; position: absolute; width: 21px; height: 7px; border: 1.5px solid #c4b5fd; border-radius: 50%; }
 .saturn-icon span { position: relative; z-index: 1; width: 10px; height: 10px; border-radius: 50%; background: radial-gradient(circle at 32% 28%, #f5f3ff, #8b5cf6 55%, #312e81); box-shadow: 0 0 8px rgba(167,139,250,.7); }
@@ -220,6 +223,8 @@ body {
 html[data-theme="neon"] body { background: radial-gradient(circle at 20% 18%, rgba(255,255,255,.055), transparent 28rem), #020202; }
 html[data-theme="neon"] .mobile-nav-bar, html[data-theme="neon"] .mobile-menu { background: rgba(3,3,3,.94); border-color: rgba(255,255,255,.2); box-shadow: 0 16px 45px rgba(0,0,0,.7), inset 0 1px rgba(255,255,255,.08); }
 html[data-theme="neon"] .theme-toggle { color: #fff; border-color: rgba(255,255,255,.28); background: rgba(255,255,255,.08); }
+html[data-theme="neon"] .language-toggle { border-color: rgba(255,255,255,.22); background: rgba(255,255,255,.05); }
+html[data-theme="neon"] .language-toggle button.is-active { color: #000; background: #fff; box-shadow: none; }
 html[data-theme="neon"] .menu-toggle span { background: #fff; }
 html[data-theme="neon"] main .text-white { color: #fff; }
 html[data-theme="neon"] main .text-slate-200, html[data-theme="neon"] main .text-slate-300 { color: #e5e5e5; }

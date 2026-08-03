@@ -8,8 +8,12 @@ import {
   slideInFromTop,
 } from "@/utils/motion";
 import Image from "next/image";
+import { useLanguage } from "../LanguageProvider";
 
 const HeroContent = () => {
+  const { language } = useLanguage();
+  const es = language === "es";
+
   return (
     <motion.div
       initial="visible"
@@ -36,7 +40,7 @@ const HeroContent = () => {
             
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-500 ">
               {" "}
-              Bringing all your projects together
+              {es ? "Todos tus proyectos en un solo lugar" : "Bringing all your projects together"}
             </span>
              
           </span>
@@ -46,15 +50,16 @@ const HeroContent = () => {
           variants={slideInFromLeft(0.8)}
           className="my-3 max-w-[600px] text-base leading-7 text-slate-300 sm:text-lg"
         >
-          I&apos;m an engineering student building thoughtful experiences for web,
-          mobile, and software. Explore a selection of my latest projects.
+          {es
+            ? "Soy estudiante de ingeniería y creo experiencias cuidadas para web, móvil y software. Explorá una selección de mis últimos proyectos."
+            : "I'm an engineering student building thoughtful experiences for web, mobile, and software. Explore a selection of my latest projects."}
         </motion.p>
         <motion.a
           variants={slideInFromLeft(1)}
           href="#projects"
           className="button-primary mt-2 hidden min-h-12 items-center justify-center rounded-full border border-violet-400/30 px-7 py-3 font-medium text-white transition hover:-translate-y-0.5 hover:border-violet-300/60 lg:inline-flex"
         >
-          View my work
+          {es ? "Ver mis proyectos" : "View my work"}
         </motion.a>
 
         <motion.a
