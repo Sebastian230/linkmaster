@@ -19,7 +19,7 @@ const Marquee = () => {
   const es = language === "es";
 
   return (
-    <div className="marquee relative z-40 border-y border-white/10 py-5" aria-hidden="true">
+    <div className="marquee relative z-40 border-b border-white/10 py-5" aria-hidden="true">
       <div className="marquee-track">
         {[0, 1].map((copy) => (
           <div key={copy} className="flex shrink-0 items-center">
