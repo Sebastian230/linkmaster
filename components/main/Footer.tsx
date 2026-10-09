@@ -17,7 +17,7 @@ function Footer() {
 
   return (
     <footer id="contact" className="scroll-mt-24 border-t border-white/10 bg-black/20">
-      <div className="mx-auto grid w-full max-w-7xl gap-12 px-5 py-16 sm:px-8 md:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr] lg:px-12 lg:py-20">
+      <div className="mx-auto grid w-full max-w-6xl gap-12 px-4 py-16 sm:px-8 md:grid-cols-2 xl:grid-cols-[1.5fr_1fr_1fr] lg:py-20">
         <div className="max-w-md">
           <Image src="/Bash.svg.png" alt="Linkmaster" width={288} height={100} className="h-auto w-44 sm:w-56" />
           <p className="mt-6 text-sm leading-6 text-slate-400 sm:text-base">{es ? "“Todo tiene un principio y un final. La vida es solo un ciclo de comienzos y pausas.”" : "“Everything has a beginning and an end. Life is just a cycle of starts and stops.”"}</p>
@@ -30,9 +30,9 @@ function Footer() {
         </div>
 
         <div>
-          <h3 className="text-lg font-semibold text-white">{es ? "Qué hago" : "What I do"}</h3>
+          <h3 className="text-lg font-semibold text-white">{es ? "Qué hacemos" : "What we do"}</h3>
           <ul className="mt-5 space-y-3 text-sm text-slate-400 sm:text-base">
-            <li>{es ? "Diseño web" : "Web design"}</li><li>{es ? "Diseño UI/UX" : "UI/UX design"}</li><li>{es ? "Desarrollo web" : "Web development"}</li><li>{es ? "Desarrollo de software" : "Software development"}</li><li>{es ? "Soporte informático" : "IT support"}</li>
+            <li>{es ? "Software a medida" : "Custom software"}</li><li>{es ? "Sitios y tiendas online" : "Websites and online stores"}</li><li>{es ? "Agentes y bots" : "Agents and bots"}</li><li>{es ? "Redes y soporte" : "Networks and support"}</li><li>{es ? "Armado de PC" : "PC builds"}</li><li>{es ? "Impresión 3D y diseño" : "3D printing and design"}</li>
           </ul>
         </div>
 
@@ -45,7 +45,7 @@ function Footer() {
           </div>
         </div>
       </div>
-      <div className="border-t border-white/10 px-5 py-6 text-center text-xs text-slate-500 sm:text-sm">© {new Date().getFullYear()} Linkmaster · {es ? "Diseñado por" : "Designed by"} Sebastian N.R.</div>
+      <div className="border-t border-white/10 px-5 py-6 text-center text-xs text-slate-500 sm:text-sm">© {new Date().getFullYear()} linkmaster</div>
     </footer>
   );
 }

@@ -2,13 +2,12 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import {
-  slideInFromLeft,
-  slideInFromRight,
-  slideInFromTop,
-} from "@/utils/motion";
-import Image from "next/image";
 import { useLanguage } from "../LanguageProvider";
+
+const fadeUp = (delay: number) => ({
+  hidden: { y: 16, opacity: 0 },
+  visible: { y: 0, opacity: 1, transition: { delay, duration: 0.6, ease: "easeOut" } },
+});
 
 const HeroContent = () => {
   const { language } = useLanguage();
@@ -16,81 +15,56 @@ const HeroContent = () => {
 
   return (
     <motion.div
-      initial="visible"
+      initial="hidden"
       animate="visible"
-      className="relative z-30 mx-auto flex w-full max-w-7xl flex-1 flex-col items-center justify-center gap-6 px-5 pb-16 pt-24 sm:gap-10 sm:px-8 sm:pt-36 lg:flex-row lg:gap-8 lg:px-12 lg:pt-28"
+      className="relative z-30 mx-auto flex w-full max-w-6xl flex-col items-center px-4 pb-10 pt-[178px] text-center sm:px-8 lg:pt-[262px]"
     >
-      <div className="flex w-full flex-1 flex-col items-center justify-center gap-4 text-center lg:items-start lg:text-left">
-        <div className="mobile-planet-wrap" aria-label="Dos planetas orbitando">
-          <motion.div
-            variants={slideInFromTop}
-            className="hero-planet-system"
-          >
-            <span className="hero-planet-main" />
-            <span className="hero-planet-ring" />
-            <span className="hero-planet-orbit"><span className="hero-planet-small" /></span>
-          </motion.div>
-        </div>
-
-        <motion.div
-          variants={slideInFromLeft(0.5)}
-          className="mt-4 max-w-[720px] text-4xl font-bold leading-[1.08] tracking-tight text-white sm:text-5xl lg:text-6xl xl:text-7xl"
-        >
-          <span>
-            
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-500 ">
-              {" "}
-              {es ? "Todos tus proyectos en un solo lugar" : "Bringing all your projects together"}
-            </span>
-             
-          </span>
-        </motion.div>
+      <motion.div
+        variants={fadeUp(0.1)}
+        className="hero-panel relative w-full max-w-4xl rounded-[28px] border border-white/10 bg-black/35 px-5 py-10 backdrop-blur-xl sm:px-12 sm:py-14"
+      >
+        <span className="hero-panel-line" aria-hidden="true" />
 
         <motion.p
-          variants={slideInFromLeft(0.8)}
-          className="my-3 max-w-[600px] text-base leading-7 text-slate-300 sm:text-lg"
+          variants={fadeUp(0.2)}
+          className="font-mono text-[10px] uppercase tracking-[0.16em] text-violet-300 sm:text-xs sm:tracking-[0.32em]"
+        >
+          Software · {es ? "Agentes" : "Agents"} · {es ? "Redes" : "Networks"} · PC · 3D
+        </motion.p>
+
+        <motion.h1
+          variants={fadeUp(0.3)}
+          className="mt-5 text-[2rem] font-semibold leading-[1.05] tracking-tight text-white sm:text-6xl lg:text-7xl"
+        >
+          {es ? "Tecnología" : "Technology"}
+          <span className="shine-text block">{es ? "que trabaja por vos." : "that works for you."}</span>
+        </motion.h1>
+
+        <motion.p
+          variants={fadeUp(0.4)}
+          className="mx-auto mt-6 max-w-xl text-base leading-7 text-slate-400 sm:text-lg"
         >
           {es
-            ? "Soy estudiante de ingeniería y creo experiencias cuidadas para web, móvil y software. Explorá una selección de mis últimos proyectos."
-            : "I'm an engineering student building thoughtful experiences for web, mobile, and software. Explore a selection of my latest projects."}
+            ? "Software a medida, agentes de IA, redes, armado de PC e impresión 3D. Un solo contacto para todo."
+            : "Custom software, AI agents, networks, PC builds and 3D printing. One point of contact for everything."}
         </motion.p>
-        <motion.a
-          variants={slideInFromLeft(1)}
-          href="#projects"
-          className="button-primary mt-2 hidden min-h-12 items-center justify-center rounded-full border border-violet-400/30 px-7 py-3 font-medium text-white transition hover:-translate-y-0.5 hover:border-violet-300/60 lg:inline-flex"
-        >
-          {es ? "Ver mis proyectos" : "View my work"}
-        </motion.a>
 
-        <motion.a
-          variants={slideInFromLeft(1)}
-          href="#projects"
-          className="keyboard-project-link lg:hidden"
-          aria-label="Ver mis proyectos"
-        >
-          <Image
-            src="/corne-keyboard-3d.png"
-            alt={es ? "Teclado mecánico Corne split 3D" : "3D Corne split mechanical keyboard"}
-            width={768}
-            height={512}
-            className="h-auto w-full"
-            priority
-          />
-        </motion.a>
-      </div>
-
-      <motion.div
-        variants={slideInFromRight(0.8)}
-        className="hidden w-full max-w-[520px] flex-1 items-center justify-center lg:flex lg:max-w-none"
-      >
-        <Image
-          src="/mainIconsdark.svg"
-          alt="work icons"
-          height={680}
-          width={680}
-          priority
-          className="h-auto w-full max-w-[520px] drop-shadow-[0_0_60px_rgba(124,58,237,0.22)] lg:max-w-[620px]"
-        />
+        <motion.div variants={fadeUp(0.5)} className="mt-9 flex flex-wrap items-center justify-center gap-3">
+          <a
+            href="#services"
+            className="inline-flex min-h-12 items-center justify-center rounded-full bg-white px-7 text-sm font-semibold text-black transition hover:-translate-y-0.5 hover:bg-slate-200"
+          >
+            {es ? "Ver servicios" : "View services"}
+          </a>
+          <a
+            href="https://wa.me/59895821202"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex min-h-12 items-center justify-center rounded-full border border-white/15 bg-white/5 px-7 text-sm font-medium text-white transition hover:-translate-y-0.5 hover:border-white/40"
+          >
+            {es ? "Pedir presupuesto" : "Get a quote"}
+          </a>
+        </motion.div>
       </motion.div>
     </motion.div>
   );

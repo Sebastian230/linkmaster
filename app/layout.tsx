@@ -8,7 +8,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "linkmaster",
-  description: "For linking works and porfolio",
+  description: "Software a medida, agentes de IA, redes, armado de PC e impresión 3D.",
 };
 
 export default function RootLayout({
@@ -17,8 +17,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${inter.className} bg-[#030014] overflow-y-scroll overflow-x-hidden`}>
+    <html lang="es">
+      <body className={`${inter.className} bg-[#020202] overflow-y-scroll overflow-x-hidden`}>
         <LanguageProvider>
           <StarsCanvas/>
           {children}
