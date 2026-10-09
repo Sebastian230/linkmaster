@@ -27,7 +27,9 @@ const ContactForm = () => {
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify({ ...data, _subject: `linkmaster: mensaje de ${data.name}`, _template: "table" }),
       });
-      if (!response.ok) throw new Error(String(response.status));
+      // FormSubmit responde 200 aunque falle: el resultado real viene en "success".
+      const result = await response.json().catch(() => null);
+      if (!response.ok || String(result?.success) !== "true") throw new Error(result?.message ?? String(response.status));
       form.reset();
       setStatus("sent");
     } catch {
