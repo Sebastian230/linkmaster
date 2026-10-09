@@ -214,9 +214,17 @@ body {
 .tech-row { transition: background 300ms ease, padding 300ms ease; }
 .tech-row:hover { background: linear-gradient(90deg, rgba(139, 92, 246, 0.1), transparent 70%); }
 
+/* Mapa de contacto */
+.map-arc { fill: none; stroke: url(#arc-gradient); stroke-width: 0.3; stroke-linecap: round; stroke-dasharray: 1; stroke-dashoffset: 1; animation: map-arc 3.5s ease-in-out infinite; }
+.map-ring { fill: none; stroke: #a78bfa; stroke-width: 0.25; transform-box: fill-box; transform-origin: center; animation: map-ring 2.4s ease-out infinite; }
+.map-label { fill: #e2e8f0; font-size: 2.3px; font-family: ui-monospace, monospace; letter-spacing: 0.08em; text-transform: uppercase; }
+@keyframes map-arc { 0% { stroke-dashoffset: 1; } 55%, 100% { stroke-dashoffset: -1; } }
+@keyframes map-ring { from { transform: scale(1); opacity: 0.9; } to { transform: scale(4.5); opacity: 0; } }
+
 @keyframes online-pulse { 50% { opacity: .65; box-shadow: 0 0 0 5px rgba(74,222,128,0), 0 0 10px rgba(74,222,128,.7); } }
 
 @media (prefers-reduced-motion: reduce) {
-  .availability-dot.is-online, .shine-text, .hero-panel-line, .hero-panel-line::after, .marquee-track { animation: none; }
+  .availability-dot.is-online, .shine-text, .hero-panel-line, .hero-panel-line::after, .marquee-track, .map-ring { animation: none; }
+  .map-arc { animation: none; stroke-dashoffset: 0; }
   .sidebar, .menu-toggle span { transition: none; }
 }

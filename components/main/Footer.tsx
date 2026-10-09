@@ -4,6 +4,8 @@ import { FaLinkedin } from "react-icons/fa";
 import { BiEnvelope, BiLogoGithub, BiLogoWhatsapp } from "react-icons/bi";
 import Image from "next/image";
 import { useLanguage } from "../LanguageProvider";
+import ContactForm from "../sub/ContactForm";
+import ContactMap from "../sub/ContactMap";
 
 const email = "rodriguez.sebastian.gar@gmail.com";
 
@@ -32,6 +34,10 @@ function Footer() {
             <BiEnvelope className="shrink-0 text-xl" aria-hidden="true" />
             {email}
           </a>
+        </div>
+        <div className="mt-12 grid items-center gap-10 xl:grid-cols-2">
+          <ContactMap />
+          <ContactForm />
         </div>
       </div>
       <div className="mx-auto grid w-full max-w-6xl gap-12 px-4 py-16 sm:px-8 md:grid-cols-2 xl:grid-cols-[1.5fr_1fr_1fr] lg:py-20">
