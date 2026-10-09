@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { BiLogoWhatsapp } from "react-icons/bi";
+import { BiEnvelope, BiLogoWhatsapp } from "react-icons/bi";
 import { useLanguage } from "../LanguageProvider";
 
 const isWithinWorkingHours = () => {
@@ -123,6 +123,13 @@ const Sidebar = () => {
           >
             <BiLogoWhatsapp className="text-lg" aria-hidden="true" />
             {es ? "Presupuesto" : "Quote"}
+          </a>
+          <a
+            href="mailto:rodriguez.sebastian.gar@gmail.com"
+            className="inline-flex min-h-11 items-center justify-center gap-2 rounded-xl border border-white/15 bg-white/5 px-3 text-sm font-medium text-white transition hover:border-white/40"
+          >
+            <BiEnvelope className="text-lg" aria-hidden="true" />
+            Email
           </a>
           <div className="language-toggle self-start" aria-label={es ? "Seleccionar idioma" : "Select language"}>
             <button type="button" className={es ? "is-active" : ""} onClick={() => setLanguage("es")} aria-pressed={es}>ES</button>

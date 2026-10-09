@@ -1,13 +1,16 @@
 "use client";
 
 import { FaLinkedin } from "react-icons/fa";
-import { BiLogoGithub, BiLogoWhatsapp } from "react-icons/bi";
+import { BiEnvelope, BiLogoGithub, BiLogoWhatsapp } from "react-icons/bi";
 import Image from "next/image";
 import { useLanguage } from "../LanguageProvider";
+
+const email = "rodriguez.sebastian.gar@gmail.com";
 
 const socials = [
   { icon: <FaLinkedin />, label: "LinkedIn", href: "https://www.linkedin.com/in/sebrod1998/" },
   { icon: <BiLogoWhatsapp />, label: "WhatsApp", href: "https://wa.me/59895821202" },
+  { icon: <BiEnvelope />, label: "Email", href: `mailto:${email}` },
   { icon: <BiLogoGithub />, label: "GitHub", href: "https://github.com/Sebastian230" },
 ];
 
@@ -17,6 +20,20 @@ function Footer() {
 
   return (
     <footer id="contact" className="scroll-mt-24 border-t border-white/10 bg-black/20">
+      <div className="mx-auto w-full max-w-6xl px-4 pt-16 sm:px-8 lg:pt-20">
+        <p className="mb-3 font-mono text-xs uppercase tracking-[0.28em] text-violet-300">{es ? "Contacto" : "Contact"}</p>
+        <h2 className="text-3xl font-semibold tracking-tight text-white sm:text-5xl">{es ? "Hablemos de tu proyecto." : "Let's talk about your project."}</h2>
+        <div className="mt-8 flex flex-wrap gap-3">
+          <a href="https://wa.me/59895821202" target="_blank" rel="noreferrer" className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-white px-6 text-sm font-semibold text-black transition hover:-translate-y-0.5 hover:bg-slate-200">
+            <BiLogoWhatsapp className="text-xl" aria-hidden="true" />
+            WhatsApp
+          </a>
+          <a href={`mailto:${email}`} className="inline-flex min-h-12 items-center justify-center gap-2 break-all rounded-full border border-white/15 bg-white/5 px-6 text-sm font-medium text-white transition hover:-translate-y-0.5 hover:border-white/40">
+            <BiEnvelope className="shrink-0 text-xl" aria-hidden="true" />
+            {email}
+          </a>
+        </div>
+      </div>
       <div className="mx-auto grid w-full max-w-6xl gap-12 px-4 py-16 sm:px-8 md:grid-cols-2 xl:grid-cols-[1.5fr_1fr_1fr] lg:py-20">
         <div className="max-w-md">
           <Image src="/Bash.svg.png" alt="Linkmaster" width={288} height={100} className="h-auto w-44 sm:w-56" />
