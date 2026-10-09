@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
+import { BiCheck, BiX } from "react-icons/bi";
 import { useLanguage } from "../LanguageProvider";
 
 // FormSubmit reenvía cada mensaje a esta casilla, sin servidor propio.
@@ -14,6 +15,16 @@ const ContactForm = () => {
   const { language } = useLanguage();
   const es = language === "es";
   const [status, setStatus] = useState<Status>("idle");
+  const closeRef = useRef<HTMLButtonElement>(null);
+  const popupOpen = status === "sent" || status === "error";
+
+  useEffect(() => {
+    if (!popupOpen) return;
+    closeRef.current?.focus();
+    const onKey = (event: KeyboardEvent) => { if (event.key === "Escape") setStatus("idle"); };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [popupOpen]);
 
   const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -63,10 +74,32 @@ const ContactForm = () => {
         {status === "sending" ? (es ? "Enviando…" : "Sending…") : (es ? "Enviar mensaje" : "Send message")}
       </button>
 
-      <p role="status" aria-live="polite" className={`min-h-5 text-sm ${status === "error" ? "text-red-600" : "text-green-700"}`}>
-        {status === "sent" && (es ? "Mensaje enviado. Te respondemos a la brevedad." : "Message sent. We'll get back to you shortly.")}
-        {status === "error" && (es ? "No se pudo enviar. Probá de nuevo o escribinos por WhatsApp." : "It couldn't be sent. Try again or message us on WhatsApp.")}
-      </p>
+      {popupOpen && (
+        <div className="fixed inset-0 z-[200] grid place-items-center bg-black/70 p-4 backdrop-blur-sm" onClick={() => setStatus("idle")}>
+          <div
+            role="alertdialog"
+            aria-modal="true"
+            aria-labelledby="contact-popup-title"
+            onClick={(event) => event.stopPropagation()}
+            className="popup-in w-full max-w-sm rounded-3xl border border-white/10 bg-[#0a0a0a] p-8 text-center text-white shadow-[0_0_90px_rgba(139,92,246,0.35)]"
+          >
+            <span className={`mx-auto grid size-14 place-items-center rounded-full text-3xl ${status === "sent" ? "bg-violet-500/20 text-violet-300" : "bg-red-500/15 text-red-300"}`}>
+              {status === "sent" ? <BiCheck aria-hidden="true" /> : <BiX aria-hidden="true" />}
+            </span>
+            <h4 id="contact-popup-title" className="mt-5 text-2xl font-semibold tracking-tight">
+              {status === "sent" ? (es ? "¡Mensaje enviado!" : "Message sent!") : (es ? "No se pudo enviar" : "It couldn't be sent")}
+            </h4>
+            <p className="mt-2 text-sm leading-6 text-slate-400">
+              {status === "sent"
+                ? (es ? "Gracias por escribirnos. Te respondemos a la brevedad." : "Thanks for writing. We'll get back to you shortly.")
+                : (es ? "Probá de nuevo en un momento o escribinos por WhatsApp." : "Try again in a moment or message us on WhatsApp.")}
+            </p>
+            <button ref={closeRef} type="button" onClick={() => setStatus("idle")} className="mt-7 inline-flex min-h-11 items-center justify-center rounded-full bg-white px-8 text-sm font-semibold text-black transition hover:bg-slate-200">
+              {es ? "Cerrar" : "Close"}
+            </button>
+          </div>
+        </div>
+      )}
     </form>
   );
 };
